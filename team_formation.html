@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Formation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header,
+        nav,
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        output {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function updateTeamSummary() {
+            const teamName = document.getElementById('team_name').value;
+            const teamLeader = document.getElementById('team_leader').value;
+            const teamMembers = document.querySelectorAll('.team_member');
+            const projectCategory = document.getElementById('project_category').value;
+
+            let summary = `<strong>Team Name:</strong> ${teamName}<br>`;
+            summary += `<strong>Team Leader:</strong> ${teamLeader}<br>`;
+            summary += `<strong>Team Members:</strong><br>`;
+            teamMembers.forEach((member, index) => {
+                summary += `Member ${index + 1}: ${member.value}<br>`;
+            });
+            summary += `<strong>Project Category:</strong> ${projectCategory}<br>`;
+
+            document.getElementById('team_summary').innerHTML = summary;
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>University Hackathon</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="registration.html">Registration Form</a>
+        <a href="contact.html">Contact</a>
+        <a href="team_formation.html">Team Formation</a>
+        <a href="fee_calculator.html">Fee Calculator</a>
+    </nav>
+
+    <main>
+        <h1>Team Formation</h1>
+        <form oninput="updateTeamSummary()">
+            <label for="team_name">Team Name:</label>
+            <input type="text" id="team_name" name="team_name" required>
+
+            <label for="team_leader">Team Leader:</label>
+            <input type="text" id="team_leader" name="team_leader" required>
+
+            <label for="team_member_1">Team Member 1:</label>
+            <input type="text" class="team_member" id="team_member_1" name="team_member_1" required>
+
+            <label for="team_member_2">Team Member 2:</label>
+            <input type="text" class="team_member" id="team_member_2" name="team_member_2" required>
+
+            <label for="team_member_3">Team Member 3:</label>
+            <input type="text" class="team_member" id="team_member_3" name="team_member_3" required>
+
+            <label for="project_category">Project Category:</label>
+            <select id="project_category" name="project_category" required>
+                <option value="">Select Category</option>
+                <option value="web_development">Web Development</option>
+                <option value="mobile_app">Mobile App</option>
+                <option value="data_science">Data Science</option>
+            </select>
+
+            <output id="team_summary">
+                <strong>Team Summary:</strong>
+            </output>
+
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 University Hackathon. All rights reserved.@piyush</p>
+    </footer>
+
+</body>
+
+</html>
